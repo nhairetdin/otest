@@ -7,11 +7,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ItemDetailPage {
 
+  title: string;
+  description: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ItemDetailPage');
+    this.title = this.navParams.get('item').title;
+    this.description = this.navParams.get('item').description;
   }
 
 }

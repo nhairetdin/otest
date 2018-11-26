@@ -16,6 +16,7 @@ import { EditItemPage } from '../pages/edit-item/edit-item'
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}
