@@ -11,17 +11,27 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AddItemPage } from '../pages/add-item/add-item';
+import { EditItemPage } from '../pages/edit-item/edit-item'
+import { ItemDetailPage } from '../pages/item-detail/item-detail';
+
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
     NotesPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    AddItemPage,
+    EditItemPage,
+    ItemDetailPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +39,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NotesPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    AddItemPage,
+    EditItemPage,
+    ItemDetailPage
   ],
   providers: [
     StatusBar,
