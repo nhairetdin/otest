@@ -15,4 +15,18 @@ export class DataProvider {
     this.storage.set('notes', data);
   }
 
+  replace(item) {
+    this.storage.get('notes')
+      .then(notes => {
+        if (notes) {
+          notes.forEach(element => {
+            if (element.title === item.title) {
+              element.checked = item.checked
+            }
+          });
+          this.storage.set('notes', notes)
+        }
+      })
+  }
+
 }

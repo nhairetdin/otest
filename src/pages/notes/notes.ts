@@ -17,7 +17,7 @@ export class NotesPage {
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataProvider: DataProvider) {
     this.dataProvider.getData().then(notes => {
-      this.items = notes ? notes : []
+      this.items = notes ? notes.sort((a, b) => a.title < b.title) : []
     })
   }
 
@@ -60,6 +60,11 @@ export class NotesPage {
   saveItem(item) {
     this.items.push(item);
     this.dataProvider.save(this.items);
+  }
+
+  onCheckedChange(item) {
+    this.dataProvider.replace({ ...item, checked: !item.checked })
+    console.log("changed")
   }
 
 }

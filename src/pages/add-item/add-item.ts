@@ -16,7 +16,8 @@ export class AddItemPage {
   saveItem(){
     let newItem = {
       title: this.title,
-      description: this.description
+      description: this.description,
+      checked: false
     };
  
     this.view.dismiss(newItem);

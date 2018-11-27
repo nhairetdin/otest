@@ -23,11 +23,12 @@ export class LoginPage {
   }
 
   async signIn() {
-    if (await this.auth.login(this.email, this.password)) {
-      this.navCtrl.push(TabsPage);
-    } else {
-      console.log("failed to login")
-    }
+    this.navCtrl.push(TabsPage);
+    // if (await this.auth.login(this.email, this.password)) {
+    //   this.navCtrl.push(TabsPage);
+    // } else {
+    //   console.log("failed to login")
+    // }
   }
 
   ionViewDidLoad() {
