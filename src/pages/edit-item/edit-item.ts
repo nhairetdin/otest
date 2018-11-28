@@ -11,7 +11,7 @@ export class EditItemPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
   }
-
+  // create new object and pass it to the callback, then dismiss the screen
   saveItem(){
     let newItem = {
       title: this.title,
@@ -20,7 +20,7 @@ export class EditItemPage {
  
     this.view.dismiss(newItem);
   }
-
+  // close without changing anything
   close(){
     this.view.dismiss();
   }

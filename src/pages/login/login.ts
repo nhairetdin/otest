@@ -17,11 +17,11 @@ export class LoginPage {
 
   constructor(public auth: AuthProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  // open register-page
   openRegisterPage() {
     this.navCtrl.push(RegisterPage)
   }
-
+  // if signin returns true, go to TabsPage which is the root for the rest pages
   async signIn() {
     //this.navCtrl.push(TabsPage);
     if (await this.auth.login(this.email, this.password)) {

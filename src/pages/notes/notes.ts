@@ -20,7 +20,7 @@ export class NotesPage {
       this.items = notes ? notes.sort((a, b) => a.title < b.title) : []
     })
   }
-
+  // this function is called when user clicks new item buttons
   addItem() {
     let addModal = this.modalCtrl.create(AddItemPage);
     
@@ -32,13 +32,14 @@ export class NotesPage {
 
     addModal.present();
   }
-
+  //this will open a new modal screen displaying the item
   viewItem(item) {
     this.navCtrl.push(ItemDetailPage, {
       item: item
     });
   }
-
+  // this is called when edit button is clicked, 
+  // will open another screen and also sets onDidDismiss-callback function for actions when closed
   editItem(item) {
     let editModal = this.modalCtrl.create(EditItemPage, { item: item });
 
@@ -51,20 +52,19 @@ export class NotesPage {
 
     editModal.present();
   }
-
+  // this will delete an item when delete clicked
   deleteItem(item) {
     this.items = this.items.filter(i => i.title !== item.title)
     this.dataProvider.save(this.items);
   }
-
+  // save...
   saveItem(item) {
     this.items.push(item);
     this.dataProvider.save(this.items);
   }
-
+  // this is called when the done/undone switch is clicked, position will be saved in database
   onCheckedChange(item) {
     this.dataProvider.replace({ ...item, checked: !item.checked })
-    console.log("changed")
   }
 
 }

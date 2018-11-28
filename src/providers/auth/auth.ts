@@ -8,9 +8,12 @@ export class AuthProvider {
   constructor(public afAuth: AngularFireAuth) {
     console.log('Hello AuthProvider Provider');
   }
-
+  // this function receives email and password from the login form, and return true if successful
   async login(email, password) {
-    console.log(email, password)
+    if (!email || !password) {
+      return false
+    }
+
     let success = await this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then(data => {
         console.log("logged id")
@@ -23,8 +26,13 @@ export class AuthProvider {
 
     return success
   }
-
+  // this function also receives email and password from the login form, and return true if successful
+  // but instead of logging in, register
   async register(email, password) {
+    if (!email || !password) {
+      return false
+    }
+
     let success = await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         return true

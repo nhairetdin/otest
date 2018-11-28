@@ -12,7 +12,7 @@ export class AddItemPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
   }
-
+  // new object is created and passed to the callback function which was wired up when launching this screen
   saveItem(){
     let newItem = {
       title: this.title,
@@ -22,7 +22,7 @@ export class AddItemPage {
  
     this.view.dismiss(newItem);
   }
-
+  // close without saving
   close(){
     this.view.dismiss();
   }

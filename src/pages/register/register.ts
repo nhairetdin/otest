@@ -16,7 +16,7 @@ export class RegisterPage {
 
   constructor(public auth: AuthProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  // if new account is created succesfully, returning true, pass user in to TabsPage
   async createAccount() {
     if (await this.auth.register(this.email, this.password)) {
       this.navCtrl.push(TabsPage)
